@@ -4,6 +4,51 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+:root {
+  --accent: #2563eb;
+}
+
 body {
   margin: 0;
+}
+
+@layer components {
+  .btn-primary {
+    background-color: var(--accent);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .btn-primary:hover {
+    filter: brightness(0.92);
+  }
+  .btn-primary:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+  .btn-outline {
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    cursor: pointer;
+  }
+  .field {
+    width: 100%;
+    border: 1px solid #cbd5e1;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: transparent;
+  }
+  .field:focus {
+    outline: 2px solid var(--accent);
+  }
+  .dark .field {
+    border-color: #475569;
+    background: #1e293b;
+    color: #f1f5f9;
+  }
 }
