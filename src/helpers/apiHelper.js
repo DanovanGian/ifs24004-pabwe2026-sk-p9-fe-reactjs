@@ -1,5 +1,6 @@
 const TOKEN_KEY = 'token'
 const USER_KEY = 'user'
+const API_BASE = import.meta.env.VITE_API_URL
 
 export function getToken() {
   return localStorage.getItem(TOKEN_KEY)
@@ -28,7 +29,7 @@ export async function apiRequest(path, options = {}) {
     headers.Authorization = `Bearer ${token}`
   }
 
-  const res = await fetch(`/api${path}`, {
+  const res = await fetch(`${API_BASE}/api${path}`, {
     method,
     headers,
     body: body !== undefined ? JSON.stringify(body) : undefined,
